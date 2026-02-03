@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ryumoto GFX Gaming — Premium Visual Design for Gamers</title>
+  <meta name="description" content="Ryumoto GFX Gaming provides premium visual branding for gamers: logos, thumbnails, banners, stream overlays, esports posters, and social media designs." />
+
+  <style>
+    :root{
+      --bg:#070A12;
+      --panel:#0C1222;
+      --panel2:#0A0F1D;
+      --text:#EAF0FF;
+      --muted:#A9B4D0;
+      --line:rgba(255,255,255,.08);
+
+      --brand1:#7C3AED;  /* neon violet */
+      --brand2:#22D3EE;  /* neon cyan */
+      --brand3:#F43F5E;  /* neon rose */
+
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 20% 10%, rgba(124,58,237,.25), transparent 60%),
+        radial-gradient(900px 500px at 80% 20%, rgba(34,211,238,.18), transparent 55%),
+        radial-gradient(700px 420px at 70% 85%, rgba(244,63,94,.12), transparent 55%),
+        linear-gradient(180deg, #040610 0%, #070A12 40%, #040610 100%);
+      overflow-x:hidden;
+    }
+
+    /* Subtle animated glow */
+    .glow{
+      position:fixed;
+      inset:-40vh -40vw auto auto;
+      width:70vw;
+      height:70vh;
+      background: radial-gradient(circle at 40% 40%, rgba(34,211,238,.13), transparent 60%),
+                  radial-gradient(circle at 60% 60%, rgba(124,58,237,.12), transparent 55%);
+      filter: blur(40px);
+      pointer-events:none;
+      opacity:.8;
+      transform: translate3d(0,0,0);
+      animation: floatGlow 10s ease-in-out infinite alternate;
+      z-index:-1;
+    }
+    @keyframes floatGlow{
+      from{transform: translate(0,0) scale(1)}
+      to{transform: translate(-3vw, 2vh) scale(1.05)}
+    }
+
+    a{color:inherit; text-decoration:none}
+    .link{
+      color: var(--text);
+      font-weight:700;
+      position:relative;
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      padding:.1rem .2rem;
+      border-radius:10px;
+      background: linear-gradient(90deg, rgba(124,58,237,.18), rgba(34,211,238,.14));
+      border: 1px solid rgba(255,255,255,.10);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      white-space:nowrap;
+    }
+    .link:hover{
+      transform: translateY(-1px);
+      border-color: rgba(34,211,238,.35);
+      background: linear-gradient(90deg, rgba(124,58,237,.26), rgba(34,211,238,.20));
+    }
+    .link svg{opacity:.9}
+
+    .wrap{width:100%}
+    .container{
+      width:min(1160px, 92vw);
+      margin:0 auto;
+    }
+
+    /* Header */
+    header{
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(7,10,18,.82), rgba(7,10,18,.55));
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width: 200px;
+    }
+    .logoMark{
+      width:38px; height:38px;
+      border-radius:14px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(34,211,238,.95), transparent 55%),
+        radial-gradient(circle at 70% 70%, rgba(124,58,237,.95), transparent 60%),
+        linear-gradient(135deg, rgba(124,58,237,.45), rgba(34,211,238,.35));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 12px 40px rgba(34,211,238,.12);
+    }
+    .brandTitle{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+    }
+    .brandTitle strong{
+      letter-spacing:.3px;
+      font-size: 14px;
+    }
+    .brandTitle span{
+      font-size:12px;
+      color:var(--muted);
+    }
+
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    .chip{
+      font-size:13px;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      transition: border-color .2s ease, transform .2s ease, color .2s ease;
+    }
+    .chip:hover{
+      transform: translateY(-1px);
+      border-color: rgba(124,58,237,.35);
+      color: var(--text);
+    }
+
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      padding:10px 14px;
+      border-radius: 999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(124,58,237,.26), rgba(34,211,238,.18));
+      box-shadow: 0 18px 60px rgba(0,0,0,.22);
+      font-weight:800;
+      font-size:13px;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      white-space:nowrap;
+    }
+    .cta:hover{
+      transform: translateY(-1px);
+      border-color: rgba(34,211,238,.38);
+      background: linear-gradient(135deg, rgba(124,58,237,.34), rgba(34,211,238,.26));
+    }
+
+    /* Hero */
+    .hero{
+      padding: 42px 0 18px;
+    }
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    .heroCard{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .heroCard:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(700px 320px at 20% 10%, rgba(124,58,237,.25), transparent 60%),
+                  radial-gradient(700px 320px at 70% 60%, rgba(34,211,238,.18), transparent 55%);
+      filter: blur(12px);
+      opacity:.8;
+      pointer-events:none;
+    }
+    .heroInner{
+      position:relative;
+      padding: 26px 24px;
+    }
+
+    .badgeRow{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-bottom: 12px;
+    }
+    .badge{
+      font-size:12px;
+      color: var(--muted);
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+
+    h1{
+      margin:0;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height:1.08;
+      letter-spacing: .2px;
+    }
+    .gradientText{
+      background: linear-gradient(90deg, var(--brand1), var(--brand2), var(--brand3));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .sub{
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 15px;
+      line-height:1.7;
+      max-width: 62ch;
+    }
+
+    .heroActions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 18px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.6rem;
+      padding: 11px 14px;
+      border-radius: 14px;
+      font-weight: 800;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(124,58,237,.35);
+      background: rgba(255,255,255,.06);
+    }
+    .btnPrimary{
+      background: linear-gradient(135deg, rgba(124,58,237,.42), rgba(34,211,238,.22));
+      border-color: rgba(34,211,238,.25);
+    }
+    .btnPrimary:hover{
+      border-color: rgba(34,211,238,.45);
+      background: linear-gradient(135deg, rgba(124,58,237,.52), rgba(34,211,238,.28));
+    }
+
+    .heroAside{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background:
+        radial-gradient(600px 280px at 20% 20%, rgba(244,63,94,.12), transparent 60%),
+        linear-gradient(180deg, rgba(12,18,34,.85), rgba(10,15,29,.75));
+      box-shadow: var(--shadow);
+      padding: 18px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .stat{
+      border:1px solid rgba(255,255,255,.09);
+      border-radius: 14px;
+      padding: 14px;
+      background: rgba(255,255,255,.03);
+    }
+    .stat strong{
+      display:block;
+      font-size: 14px;
+      letter-spacing:.2px;
+    }
+    .stat span{
+      display:block;
+      margin-top:6px;
+      color:var(--muted);
+      font-size: 13px;
+      line-height:1.6;
+    }
+
+    /* Sections */
+    section{
+      padding: 22px 0;
+    }
+    .sectionHead{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:18px;
+      margin-bottom: 14px;
+    }
+    h2{
+      margin:0;
+      font-size: 22px;
+      letter-spacing:.2px;
+    }
+    .kicker{
+      color:var(--muted);
+      font-size: 13px;
+      line-height:1.5;
+      max-width: 62ch;
+      margin:0;
+    }
+
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+    .card{
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      box-shadow: 0 16px 44px rgba(0,0,0,.25);
+      padding: 18px;
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size: 16px;
+      letter-spacing:.2px;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height:1.7;
+    }
+
+    .list{
+      margin: 10px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
+    .li{
+      display:flex;
+      gap:10px;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.03);
+    }
+    .dot{
+      width:10px; height:10px;
+      border-radius: 999px;
+      margin-top: 6px;
+      background: linear-gradient(180deg, var(--brand2), var(--brand1));
+      box-shadow: 0 10px 22px rgba(34,211,238,.10);
+      flex:0 0 auto;
+    }
+    .li strong{
+      display:block;
+      font-size: 14px;
+      letter-spacing:.2px;
+    }
+    .li span{
+      display:block;
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.55;
+      margin-top: 2px;
+    }
+
+    /* Comparison table */
+    .tableWrap{
+      overflow:auto;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.02);
+      box-shadow: 0 16px 44px rgba(0,0,0,.22);
+    }
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width: 720px;
+    }
+    th, td{
+      padding: 14px 14px;
+      text-align:left;
+      border-bottom:1px solid rgba(255,255,255,.07);
+      font-size: 13px;
+      color: var(--muted);
+      vertical-align: top;
+    }
+    th{
+      color: var(--text);
+      font-size: 13px;
+      letter-spacing:.2px;
+      background: linear-gradient(180deg, rgba(124,58,237,.16), rgba(255,255,255,.02));
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    td strong{color:var(--text)}
+    .pillYes{
+      display:inline-flex;
+      padding: 4px 9px;
+      border-radius:999px;
+      font-weight:800;
+      color: var(--text);
+      background: rgba(34,211,238,.14);
+      border: 1px solid rgba(34,211,238,.25);
+    }
+    .pillNo{
+      display:inline-flex;
+      padding: 4px 9px;
+      border-radius:999px;
+      font-weight:800;
+      color: var(--text);
+      background: rgba(244,63,94,.12);
+      border: 1px solid rgba(244,63,94,.22);
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 22px;
+      padding: 26px 0 34px;
+      border-top: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(7,10,18,.15), rgba(7,10,18,.65));
+    }
+    .footerGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:start;
+    }
+    .footTitle{
+      margin:0 0 8px;
+      font-size: 14px;
+      letter-spacing:.2px;
+      color: var(--text);
+    }
+    .footText{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.7;
+      max-width: 70ch;
+    }
+    .social{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .social a{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-weight:800;
+      font-size: 13px;
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .social a:hover{
+      transform: translateY(-1px);
+      border-color: rgba(124,58,237,.35);
+    }
+    .copyright{
+      margin-top: 14px;
+      color: rgba(169,180,208,.75);
+      font-size: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .heroGrid{grid-template-columns: 1fr; }
+      .footerGrid{grid-template-columns: 1fr; }
+      .social{justify-content:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="glow"></div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Ryumoto GFX Gaming Home">
+          <div class="logoMark" aria-hidden="true"></div>
+          <div class="brandTitle">
+            <strong>Ryumoto GFX Gaming</strong>
+            <span>Premium Visual Design for Gamers</span>
+          </div>
+        </a>
+
+        <nav class="navlinks" aria-label="Primary navigation">
+          <a class="chip" href="#about">What It Is</a>
+          <a class="chip" href="#branding">Branding Power</a>
+          <a class="chip" href="#services">Services</a>
+          <a class="chip" href="#compare">Comparison</a>
+          <a class="chip" href="#future">Future</a>
+          <a class="cta" href="#contact">
+            Let’s Build Your Brand
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path d="M9 7H17V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- BODY -->
+  <main id="top" class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <div class="heroGrid">
+          <div class="heroCard">
+            <div class="heroInner">
+              <div class="badgeRow">
+                <span class="badge">YouTube • Twitch • Esports</span>
+                <span class="badge">High-CTR Thumbnails</span>
+                <span class="badge">Pro-Level Branding</span>
+              </div>
+
+              <h1>
+                Ryumoto GFX Gaming:
+                <span class="gradientText">Premium Visual Design</span>
+                for Gamers
+              </h1>
+
+              <p class="sub">
+                In today’s competitive gaming world, visuals matter just as much as skills. Whether you are a YouTuber,
+                streamer, esports player, or gaming content creator, your visual identity plays a huge role in building
+                trust, recognition, and fan engagement. This is where
+                <a class="link" href="https://ryumoto-gfx.com/" target="_blank" rel="noopener">
+                  ryumoto gfx
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M9 7H17V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </a>
+                stands out—transforming ordinary gaming profiles into professional digital brands.
+              </p>
+
+              <div class="heroActions">
+                <a class="btn btnPrimary" href="#services">
+                  Explore Services
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M12 5v14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <path d="M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  </svg>
+                </a>
+                <a class="btn" href="#compare">See Why It’s Different</a>
+              </div>
+            </div>
+          </div>
+
+          <aside class="heroAside" aria-label="Highlights">
+            <div class="stat">
+              <strong>Problem</strong>
+              <span>Low clicks, weak branding, unprofessional layouts, and “template-looking” visuals.</span>
+            </div>
+            <div class="stat">
+              <strong>Solution</strong>
+              <span>Custom gamer-first graphics designed around audience psychology and platform performance.</span>
+            </div>
+            <div class="stat">
+              <strong>Outcome</strong>
+              <span>Stronger identity, higher CTR, better retention, and a channel that looks “brand-to-brand.”</span>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>What Is Ryumoto GFX Gaming?</h2>
+            <p class="kicker">
+              A creative graphic design platform focused specifically on the gaming community—built to deliver visuals
+              that instantly connect with viewers.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Gaming-Culture Aware</h3>
+            <p>
+              Unlike generic design services, Ryumoto GFX Gaming understands gaming trends, aesthetics, and audience behavior.
+              That means designs feel native to the gaming world—bold, energetic, and instantly recognizable.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Platform-Optimized Output</h3>
+            <p>
+              Designs are prepared with real-world use in mind—YouTube thumbnails, Twitch overlays, Facebook Gaming assets,
+              and esports promotion creatives that stay clean on mobile and pop in feeds.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRANDING -->
+    <section id="branding">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>Why Visual Branding Is Important in Gaming</h2>
+            <p class="kicker">
+              Viewers decide in seconds whether to click or scroll. Strong visuals can turn good gameplay into a brand people remember.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Consistency Builds Trust</h3>
+            <p>
+              From logos to thumbnails, every design element aligns with the gamer’s identity. Consistency improves brand recall,
+              makes your channel look professional, and strengthens audience loyalty.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Click-Through & Retention</h3>
+            <p>
+              Better thumbnails improve CTR; cleaner overlays improve watch-time and retention. Those signals help platforms recommend
+              your content more often—meaning real growth, not just “views.”
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>Core Services Offered</h2>
+            <p class="kicker">
+              A gamer-focused service stack designed to solve real pain points: low engagement, weak identity, and time wasted on design tools.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Main Services</h3>
+            <ul class="list">
+              <li class="li">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Custom Gaming Logos</strong>
+                  <span>Unique identity marks that match your vibe: esports, FPS, RPG, racing, or streamer branding.</span>
+                </div>
+              </li>
+              <li class="li">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <strong>High-CTR YouTube Thumbnails</strong>
+                  <span>Contrast + clarity + emotion triggers for better clicks without looking “spammy.”</span>
+                </div>
+              </li>
+              <li class="li">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Channel Art & Banners</strong>
+                  <span>Professional headers for YouTube, Twitch, and social platforms—clean on every device.</span>
+                </div>
+              </li>
+              <li class="li">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Stream Overlays & Alerts</strong>
+                  <span>Modern overlays that boost retention and make your stream feel premium.</span>
+                </div>
+              </li>
+              <li class="li">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Esports Posters & Team Branding</strong>
+                  <span>Match-day posters, roster reveals, tournament promos, and consistent team identity.</span>
+                </div>
+              </li>
+              <li class="li">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Social Media Gaming Posts</strong>
+                  <span>Scroll-stopping posts for announcements, highlights, promos, and engagement.</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>How It Solves Gamer Pain Points</h3>
+            <p>
+              Many gamers put hours into gameplay but don’t grow because visuals don’t match the quality of their content.
+              Ryumoto GFX Gaming targets the biggest blockers:
+            </p>
+            <ul class="list">
+              <li class="li">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Instant Attention</strong>
+                  <span>Visuals designed to grab eyes fast—especially in crowded feeds and search results.</span>
+                </div>
+              </li>
+              <li class="li">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Originality & Identity</strong>
+                  <span>No template vibes—custom designs that make your channel recognizable at a glance.</span>
+                </div>
+              </li>
+              <li class="li">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Time-Saving</strong>
+                  <span>Skip the long learning curve of design tools. Focus on content; let visuals be handled professionally.</span>
+                </div>
+              </li>
+              <li class="li">
+                <span class="dot" aria-hidden="true"></span>
+                <div>
+                  <strong>Algorithm-Friendly</strong>
+                  <span>Better CTR + retention signals = better reach, more recommendations, more consistent growth.</span>
+                </div>
+              </li>
+            </ul>
+
+            <p style="margin-top:12px; color:var(--muted); line-height:1.7; font-size:14px;">
+              Also, if you’re into sports streams and want a quick place to check matches, you can visit
+              <a class="link" href="https://smartcric.asia/" target="_blank" rel="noopener">Live Smartcric
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M7 17L17 7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M9 7H17V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+              </a>
+              —keeping your entertainment side active while your gaming brand goes pro.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARE -->
+    <section id="compare">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>Ryumoto GFX Gaming vs Generic GFX Services</h2>
+            <p class="kicker">A specialized gaming-first workflow makes the difference between “nice design” and “brand-level identity.”</p>
+          </div>
+        </div>
+
+        <div class="tableWrap" role="region" aria-label="Comparison table">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Ryumoto GFX Gaming</th>
+                <th>Generic GFX Services</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Gaming-focused designs</strong></td>
+                <td><span class="pillYes">Yes</span></td>
+                <td><span class="pillNo">No</span></td>
+              </tr>
+              <tr>
+                <td><strong>Understanding of gaming trends</strong></td>
+                <td><span class="pillYes">High</span></td>
+                <td><span class="pillNo">Low</span></td>
+              </tr>
+              <tr>
+                <td><strong>Custom branding</strong></td>
+                <td><span class="pillYes">Fully customized</span></td>
+                <td><span class="pillNo">Mostly templates</span></td>
+              </tr>
+              <tr>
+                <td><strong>Platform optimization</strong></td>
+                <td><span class="pillYes">YouTube, Twitch, Esports</span></td>
+                <td><span class="pillNo">General use</span></td>
+              </tr>
+              <tr>
+                <td><strong>Gamer audience targeting</strong></td>
+                <td><span class="pillYes">Strong</span></td>
+                <td><span class="pillNo">Weak</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO -->
+    <section id="seo">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>SEO & Algorithm Benefits of Professional GFX</h2>
+            <p class="kicker">
+              Better visuals don’t just look good—they directly impact performance metrics that platforms care about.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>YouTube CTR = More Reach</h3>
+            <p>
+              Thumbnails influence click-through rate. Higher CTR signals value to the algorithm, helping videos rank better
+              and appear in suggested feeds more often.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Retention = Stronger Recommendations</h3>
+            <p>
+              Clean overlays and consistent branding keep your stream professional and easier to watch—boosting retention,
+              session time, and overall channel authority.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHO -->
+    <section id="who">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>Who Should Use Ryumoto GFX Gaming?</h2>
+            <p class="kicker">Perfect for beginners who want a strong foundation—and pros who want a next-level rebrand.</p>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Ideal For</h3>
+            <ul class="list">
+              <li class="li"><span class="dot" aria-hidden="true"></span><div><strong>YouTubers</strong><span>Thumbnails, channel art, branding system.</span></div></li>
+              <li class="li"><span class="dot" aria-hidden="true"></span><div><strong>Streamers</strong><span>Overlays, alerts, panels, stream packs.</span></div></li>
+              <li class="li"><span class="dot" aria-hidden="true"></span><div><strong>Esports Teams</strong><span>Team identity, posters, roster reveals.</span></div></li>
+              <li class="li"><span class="dot" aria-hidden="true"></span><div><strong>Gaming Influencers</strong><span>Social templates and promo creatives.</span></div></li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Best For Growth-Minded Creators</h3>
+            <p>
+              If your content is good but growth is slow, visuals may be the hidden bottleneck. A premium identity helps you look
+              established—so new viewers trust you faster and remember you longer.
+            </p>
+            <div style="margin-top:14px; padding:14px; border-radius:14px; border:1px solid rgba(255,255,255,.08); background: rgba(255,255,255,.03);">
+              <strong style="display:block; font-size:14px;">Pro Tip</strong>
+              <span style="display:block; margin-top:6px; color:var(--muted); font-size:13px; line-height:1.7;">
+                Keep your logo, colors, and thumbnail style consistent for 30 days—watch your recognition rise.
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FUTURE -->
+    <section id="future">
+      <div class="container">
+        <div class="sectionHead">
+          <div>
+            <h2>Future of Gaming Branding</h2>
+            <p class="kicker">
+              The industry is evolving fast—audiences expect cinematic thumbnails, clean overlays, and strong identity.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>Higher Standards Every Year</h3>
+            <p>
+              Simple designs aren’t enough anymore. To stay competitive, visuals must be premium, readable on mobile,
+              and aligned across every platform.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Scalable Brand Systems</h3>
+            <p>
+              Ryumoto GFX Gaming helps creators build brand identities that adapt—new series, new games, new seasons—
+              while keeping the same recognizable “signature.”
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONCLUSION / CONTACT -->
+    <section id="contact">
+      <div class="container">
+        <div class="heroCard">
+          <div class="heroInner">
+            <h2 style="margin:0 0 8px;">Conclusion</h2>
+            <p class="kicker" style="max-width: 85ch;">
+              Ryumoto GFX Gaming is more than just a graphic design service; it’s a branding solution built specifically for gamers.
+              By solving common pain points such as poor visuals, low engagement, and lack of originality, it helps creators grow faster
+              and look professional. From logos to thumbnails and esports branding, every design is crafted with gaming psychology and
+              platform performance in mind.
+            </p>
+
+            <div class="heroActions" style="margin-top:16px;">
+              <a class="btn btnPrimary" href="#services">Start With Services</a>
+              <a class="btn" href="#top">Back to Top</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footerGrid">
+        <div>
+          <p class="footTitle">Ryumoto GFX Gaming</p>
+          <p class="footText">
+            Premium gamer-focused visuals that help you stand out, build trust, and turn your profile into a recognizable brand.
+            Keep your identity consistent, your thumbnails powerful, and your stream professional.
+          </p>
+          <div class="copyright">© <span id="year"></span> Ryumoto GFX Gaming. All rights reserved.</div>
+        </div>
+
+        <div>
+          <p class="footTitle" style="text-align:right;">Social Links</p>
+          <div class="social" aria-label="Social links">
+            <a href="#" target="_blank" rel="noopener" aria-label="Instagram">Instagram</a>
+            <a href="#" target="_blank" rel="noopener" aria-label="Facebook">Facebook</a>
+            <a href="#" target="_blank" rel="noopener" aria-label="YouTube">YouTube</a>
+            <a href="#" target="_blank" rel="noopener" aria-label="Discord">Discord</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Smooth scroll for internal anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        if (!id || id === "#") return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  </script>
+</body>
+</html>
