@@ -167,48 +167,131 @@
       max-width: 100%;
     }
 
+    .kicker{
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.85;
+      margin: 0 0 18px;
+    }
+
     /* keep your existing cards but make them simple white */
     .heroCard, .card, .heroAside, .tableWrap{
       background:#fff !important;
       border: 1px solid var(--border) !important;
       box-shadow: none !important;
+      border-radius: 18px;
     }
     .heroCard:before{display:none !important;}
+
+    .heroInner{ padding: 18px; }
 
     .badgeRow{display:none;} /* optional: screenshot page me badges nahi the */
 
     .sub{ color: var(--muted); font-size:18px; max-width:100%; }
 
     /* Buttons simple */
+    .heroActions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top: 14px;
+    }
     .btn, .btnPrimary{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:.6rem;
+      padding: 11px 14px;
       background:#fff !important;
       border: 2px solid var(--red) !important;
       color: var(--text) !important;
       border-radius: 14px;
       font-weight:900;
+      transition: background .2s ease;
     }
     .btn:hover, .btnPrimary:hover{
       background: rgba(225,29,46,.06) !important;
     }
 
+    /* Grid + cards */
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+    .card{
+      padding:18px;
+    }
+    .card h3{
+      margin:0 0 8px;
+      font-size:18px;
+      color: var(--text);
+      font-weight:900;
+    }
+    .card p{
+      margin:0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height:1.8;
+    }
+
     /* Lists simple */
+    .list{
+      margin: 10px 0 0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:10px;
+    }
     .li{
+      display:flex;
+      gap:10px;
+      padding: 12px 12px;
+      border-radius: 14px;
       border: 1px solid var(--border);
       background:#fff;
     }
-    .dot{ background: var(--red); box-shadow:none; }
+    .dot{
+      width:10px; height:10px;
+      border-radius: 999px;
+      margin-top: 6px;
+      background: var(--red);
+      flex:0 0 auto;
+    }
+    .li strong{
+      display:block;
+      font-size: 15px;
+      color: var(--text);
+      font-weight:900;
+    }
+    .li span{
+      display:block;
+      color: var(--muted);
+      font-size: 14px;
+      line-height:1.55;
+      margin-top: 2px;
+    }
 
     /* Table simple */
+    .tableWrap{
+      overflow:auto;
+      padding: 0;
+    }
     table{ width:100%; border-collapse:collapse; min-width: 720px; }
     th, td{
       padding: 14px 14px;
       border-bottom:1px solid var(--border);
       font-size: 16px;
       color: var(--muted);
+      vertical-align: top;
     }
     th{ color: var(--text); font-weight:900; background:#fff; }
+    td strong{ color: var(--text); }
 
     .pillYes, .pillNo{
+      display:inline-flex;
+      padding: 4px 9px;
+      border-radius:999px;
       border: 2px solid var(--red);
       background:#fff;
       color: var(--text);
@@ -220,6 +303,52 @@
       padding: 26px 0 34px;
       border-top: 1px solid var(--border);
       background:#fff;
+    }
+    .footerGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:start;
+    }
+    .footTitle{
+      margin:0 0 8px;
+      font-size: 14px;
+      font-weight:900;
+      color: var(--text);
+    }
+    .footText{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.7;
+      max-width: 70ch;
+    }
+    .social{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .social a{
+      display:inline-flex;
+      align-items:center;
+      gap:.5rem;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      font-weight:900;
+      font-size: 13px;
+      transition: background .2s ease;
+    }
+    .social a:hover{
+      background: rgba(225,29,46,.06);
+    }
+    .copyright{
+      margin-top: 14px;
+      color: rgba(17,17,17,.70);
+      font-size: 12px;
     }
 
     /* ✅ Layout updates for hero area (full width feel) */
@@ -258,6 +387,9 @@
       .titleBox h1{font-size:32px}
       .sectionTitle h2{font-size:26px}
       .navlinks{gap:14px}
+      .grid2{grid-template-columns: 1fr;}
+      .footerGrid{grid-template-columns: 1fr;}
+      .social{justify-content:flex-start}
       table{min-width: 100%;}
     }
   </style>
@@ -269,8 +401,12 @@
     <div class="container">
       <div class="nav">
         <a class="brand" href="#top" aria-label="Ryumoto GFX Gaming Home">
-          <!-- ✅ logo added -->
-          <img class="logoImg" src="https://ryumoto-gfx.com/wp-content/uploads/2025/08/Ryomoto-GFX.webp" alt="Ryumoto GFX Logo" />
+          <!-- ✅ Header logo (as requested) -->
+          <img class="logoImg"
+               src="https://ryumoto-gfx.com/wp-content/uploads/2025/08/Ryomoto-GFX.webp"
+               alt="Ryumoto GFX Logo"
+               loading="eager"
+               referrerpolicy="no-referrer" />
           <div class="brandTitle">
             <strong>Ryumoto GFX</strong>
             <span>Premium Visual Design for Gamers</span>
@@ -331,7 +467,6 @@
     <!-- ABOUT -->
     <section id="about">
       <div class="container">
-
         <div class="sectionTitle">
           <h2>What Is Ryumoto GFX Gaming?</h2>
         </div>
@@ -363,7 +498,6 @@
     <!-- BRANDING -->
     <section id="branding">
       <div class="container">
-
         <div class="sectionTitle">
           <h2>Why Visual Branding Is Important in Gaming</h2>
         </div>
@@ -394,7 +528,6 @@
     <!-- SERVICES -->
     <section id="services">
       <div class="container">
-
         <div class="sectionTitle">
           <h2>Core Services Offered</h2>
         </div>
@@ -507,7 +640,6 @@
     <!-- COMPARE -->
     <section id="compare">
       <div class="container">
-
         <div class="sectionTitle">
           <h2>Ryumoto GFX Gaming vs Generic GFX Services</h2>
         </div>
@@ -558,7 +690,6 @@
     <!-- SEO -->
     <section id="seo">
       <div class="container">
-
         <div class="sectionTitle">
           <h2>SEO & Algorithm Benefits of Professional GFX</h2>
         </div>
@@ -589,7 +720,6 @@
     <!-- WHO -->
     <section id="who">
       <div class="container">
-
         <div class="sectionTitle">
           <h2>Who Should Use Ryumoto GFX Gaming?</h2>
         </div>
@@ -627,7 +757,6 @@
     <!-- FUTURE -->
     <section id="future">
       <div class="container">
-
         <div class="sectionTitle">
           <h2>Future of Gaming Branding</h2>
         </div>
@@ -658,7 +787,6 @@
     <!-- CONCLUSION / CONTACT -->
     <section id="contact">
       <div class="container">
-
         <div class="sectionTitle">
           <h2>Conclusion</h2>
         </div>
